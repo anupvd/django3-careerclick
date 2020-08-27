@@ -1,0 +1,23 @@
+<a href="{% url 'home' %}">Home</a>
+<h1>CareerClick offers {{ courses.count }} course{{courses.count|pluralize}}</h1>
+<a href="{% url 'courses:all_courses' %}">Courses</a>
+
+<br>
+<br>
+<br>
+<br>
+
+{% for course in courses %}
+<br>
+<br>
+<a href="{% url 'courses:course' course.id %}" <h2>{{course.title}}</h2></a>
+
+<br>
+<br>
+{{courses.description|striptags|truncatechars:50}}
+<br>
+<br>
+{{courses.date|date:'M d Y'|upper}}
+<br>
+<br>
+{% endfor %}
